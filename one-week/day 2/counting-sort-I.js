@@ -1,12 +1,20 @@
+// function countingSort(arr) {
+// 	const sorted_array = arr.sort((a, b) => a - b);
+// 	const cache = {};
+// 	const frequency_arr = [];
+// 	for (let i = 0; i < sorted_array.length; i++) {
+// 		cache[arr[i]] = (cache[arr[i]] ?? 0) + 1;
+// 	}
+// 	for (let i = 0; i < 100; i++) {
+// 		frequency_arr[i] = cache[i] ?? 0;
+// 	}
+// 	return frequency_arr;
+// }
+
 function countingSort(arr) {
-	const sorted_array = arr.sort((a, b) => a - b);
-	const cache = {};
-	const frequency_arr = [];
-	for (let i = 0; i < sorted_array.length; i++) {
-		cache[arr[i]] = (cache[arr[i]] ?? 0) + 1;
-	}
-	for (let i = 0; i < 100; i++) {
-		frequency_arr[i] = cache[i] ?? 0;
+	const frequency_arr = new Array(100).fill(0);
+	for (let i = 0; i < arr.length; i++) {
+		frequency_arr[arr[i]] += 1;
 	}
 	return frequency_arr;
 }
